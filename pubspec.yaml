@@ -36,7 +36,10 @@ dependencies:
   google_ml_kit:
   clipboard:
   flutter_dotenv:
-  glassmorphism: ^2.0.1
+  glassmorphism: 
+  youtube_api:  
+  url_launcher: 
+  google_fonts:
 
 dev_dependencies:
   flutter_test:

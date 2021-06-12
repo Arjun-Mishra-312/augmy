@@ -1,9 +1,11 @@
 import 'dart:io';
 
+import 'package:augmy/keywordresult.dart';
 import 'package:flutter/material.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
+import 'package:google_fonts/google_fonts.dart';
 import 'echo_ar.dart';
 
 Future<void> main() async {
@@ -20,6 +22,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        fontFamily: GoogleFonts.ubuntu().fontFamily,
+        accentColor: Colors.white,
       ),
       home: MyHomePage(),
     );
@@ -75,8 +79,8 @@ class _MyHomePageState extends State<MyHomePage> {
     }
     Navigator.of(context).pop();
     Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => EchoARmodels(
-              keywords: keywords,
+        builder: (context) => keywordresult(
+              keyword: keyword,
             )));
   }
 
@@ -125,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => EchoARmodels(
+                            builder: (context) => keywordresult(
                               keyword: keyword,
                             ),
                           ),
