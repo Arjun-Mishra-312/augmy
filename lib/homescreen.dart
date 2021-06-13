@@ -33,6 +33,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future scanText() async {
+    setState(() {
+      keywords = [];
+    });
     showDialog(
         context: context,
         child: Center(

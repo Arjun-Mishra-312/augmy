@@ -155,11 +155,11 @@ class _keywordresultState extends State<keywordresult> {
               ),
             ),
             Positioned(
-              top: 500,
-              right: 0,
+              top: 450,
+              left: 100,
               child: Container(
-                height: 300,
-                width: 300,
+                height: 400,
+                width: 400,
                 decoration: BoxDecoration(
                   gradient: RadialGradient(
                     colors: [
