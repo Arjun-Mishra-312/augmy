@@ -68,43 +68,43 @@ class _MyHomePageState extends State<MyHomePage> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color.fromARGB(1, 14, 13, 18),
-        body: Stack(
-          children: [
-            Align(
-              alignment: Alignment(0, -0.2),
-              child: Container(
-                height: 450,
-                width: 450,
-                decoration: BoxDecoration(
-                  gradient: RadialGradient(
-                    colors: [
-                      Color.fromRGBO(30, 65, 122, 0.7),
-                      Color.fromRGBO(26, 63, 57, 0)
-                    ],
-                    focalRadius: 1.5,
+        body: SingleChildScrollView(
+          physics: NeverScrollableScrollPhysics(),
+          child: Stack(
+            children: [
+              Positioned(
+                top: 250,
+                child: Container(
+                  height: 450,
+                  width: 450,
+                  decoration: BoxDecoration(
+                    gradient: RadialGradient(
+                      colors: [
+                        Color.fromRGBO(30, 65, 122, 0.7),
+                        Color.fromRGBO(26, 63, 57, 0)
+                      ],
+                      focalRadius: 1.5,
+                    ),
                   ),
                 ),
               ),
-            ),
-            Align(
-              alignment: Alignment(-2.4, -1.2),
-              child: Container(
-                height: 300,
-                width: 300,
-                decoration: BoxDecoration(
-                  gradient: RadialGradient(
-                    colors: [
-                      Color.fromRGBO(30, 65, 122, 0.7),
-                      Color.fromRGBO(26, 63, 57, 0)
-                    ],
-                    focalRadius: 1,
+              Align(
+                alignment: Alignment(-2.4, -1.2),
+                child: Container(
+                  height: 300,
+                  width: 300,
+                  decoration: BoxDecoration(
+                    gradient: RadialGradient(
+                      colors: [
+                        Color.fromRGBO(30, 65, 122, 0.7),
+                        Color.fromRGBO(26, 63, 57, 0)
+                      ],
+                      focalRadius: 1,
+                    ),
                   ),
                 ),
               ),
-            ),
-            SingleChildScrollView(
-              physics: NeverScrollableScrollPhysics(),
-              child: Container(
+              Container(
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height,
                 // height: double.infinity,
@@ -177,7 +177,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             border: Border.all(color: Colors.white54),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 20, top: 12,right: 20),
+                            padding: const EdgeInsets.only(
+                                left: 20, top: 12, right: 20),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -213,8 +214,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

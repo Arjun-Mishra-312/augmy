@@ -120,11 +120,13 @@ class _keywordresultState extends State<keywordresult> {
         backgroundColor: Color.fromARGB(1, 14, 13, 18),
         body: Stack(
           children: [
-            Align(
-              alignment: Alignment(0, -0.2),
+            Positioned(
+              // alignment: Alignment(-0.2, -0.7),
+              top: 75,
+              left: 0,
               child: Container(
-                height: 450,
-                width: 450,
+                height: 400,
+                width: 400,
                 decoration: BoxDecoration(
                   gradient: RadialGradient(
                     colors: [
@@ -136,11 +138,11 @@ class _keywordresultState extends State<keywordresult> {
                 ),
               ),
             ),
-            Align(
-              alignment: Alignment(0, -0.2),
+            Positioned(
+              top: 400,
               child: Container(
-                height: 450,
-                width: 450,
+                height: 200,
+                width: 200,
                 decoration: BoxDecoration(
                   gradient: RadialGradient(
                     colors: [
@@ -152,27 +154,12 @@ class _keywordresultState extends State<keywordresult> {
                 ),
               ),
             ),
-            Align(
-              alignment: Alignment(0, -0.2),
+            Positioned(
+              top: 500,
+              right: 0,
               child: Container(
-                height: 450,
-                width: 450,
-                decoration: BoxDecoration(
-                  gradient: RadialGradient(
-                    colors: [
-                      Color.fromRGBO(30, 65, 122, 0.7),
-                      Color.fromRGBO(26, 63, 57, 0)
-                    ],
-                    focalRadius: 1.5,
-                  ),
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment(0, -0.2),
-              child: Container(
-                height: 450,
-                width: 450,
+                height: 300,
+                width: 300,
                 decoration: BoxDecoration(
                   gradient: RadialGradient(
                     colors: [
