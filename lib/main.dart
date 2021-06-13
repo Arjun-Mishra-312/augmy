@@ -6,7 +6,6 @@ import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 import 'package:google_fonts/google_fonts.dart';
-import 'echo_ar.dart';
 
 Future<void> main() async {
   await DotEnv.load(fileName: '.env');
@@ -54,6 +53,9 @@ class _MyHomePageState extends State<MyHomePage> {
     scanText();
   }
   Future scanText() async {
+    setState(() {
+      keywords = [];
+    });
     showDialog(
         context: context,
         child: Center(
@@ -80,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Navigator.of(context).pop();
     Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => keywordresult(
-              keyword: keyword,
+              keywords: keywords,
             )));
   }
 

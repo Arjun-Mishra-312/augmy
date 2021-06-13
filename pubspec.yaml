@@ -40,6 +40,7 @@ dependencies:
   youtube_api:  
   url_launcher: 
   google_fonts:
+  chips_choice:
 
 dev_dependencies:
   flutter_test:
