@@ -126,7 +126,7 @@ class _keywordresultState extends State<keywordresult> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
-                      flex: 2,
+                      flex: 4,
                       child: InkWell(
                         onTap: () {},
                         child: Padding(
@@ -146,7 +146,7 @@ class _keywordresultState extends State<keywordresult> {
                     ),
                     widget.keywords != null
                         ? Expanded(
-                            flex: 3,
+                            flex: 6,
                             child: Padding(
                               padding: const EdgeInsets.only(left: 30.0),
                               child: ChipsChoice<int>.single(
@@ -174,7 +174,7 @@ class _keywordresultState extends State<keywordresult> {
                           )
                         : Container(),
                     Expanded(
-                      flex: 1,
+                      flex: 2,
                       child: InkWell(
                         onTap: () {},
                         child: Padding(
@@ -191,7 +191,7 @@ class _keywordresultState extends State<keywordresult> {
                       ),
                     ),
                     Expanded(
-                      flex: 6,
+                      flex: 13,
                       child: ListView.builder(
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
@@ -200,7 +200,7 @@ class _keywordresultState extends State<keywordresult> {
                             listItem(index),
                       ),
                     ),
-                    Expanded(
+                    Expanded(flex: 2,
                       child: InkWell(
                         onTap: () {},
                         child: Padding(
@@ -218,7 +218,7 @@ class _keywordresultState extends State<keywordresult> {
                     ),
                     //Models
                     Expanded(
-                      flex: 8,
+                      flex: 16,
                       child: EchoARModels(options)
                     )
                     // Spacer(flex: 16),

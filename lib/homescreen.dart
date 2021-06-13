@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:augmy/keywordresult.dart';
+import 'package:glassmorphism/glassmorphism.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'echo_ar.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Navigator.of(context).pop();
     Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => keywordresult(
-              keyword: keyword,
+              keywords: keywords,
             )));
   }
 
@@ -68,25 +68,41 @@ class _MyHomePageState extends State<MyHomePage> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color.fromARGB(1, 14, 13, 18),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(12),
-              child: TextField(
-                controller: _controller,
-                decoration: InputDecoration(
-                  hintText: "search",
-                  hintStyle: TextStyle(color: Colors.white54, fontSize: 20),
-                  prefixIcon: Icon(Icons.search, color: Colors.white, size: 28),
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      Icons.chevron_right,
-                      color: Colors.white,
-                      size: 28,
-                    ),
-                    onPressed: _controller.text.isNotEmpty
-                        ? () {
+        body: SingleChildScrollView(
+          physics: NeverScrollableScrollPhysics(),
+          child: Container(
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height,
+            // height: double.infinity,
+            child:Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Spacer(),
+                Text("AugMy",
+                    style: GoogleFonts.playfairDisplay(
+                        fontSize: 42,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w800)),
+                Spacer(),
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: TextField(
+                    controller: _controller,
+                    autofocus: false,
+                    decoration: InputDecoration(
+                      fillColor: Colors.white.withOpacity(0.1),
+                      filled: true,
+                      hintText: "search",
+                      hintStyle: TextStyle(color: Colors.white54, fontSize: 20),
+                      prefixIcon:
+                          Icon(Icons.search, color: Colors.white, size: 28),
+                      suffixIcon: IconButton(
+                          icon: Icon(
+                            Icons.chevron_right,
+                            color: Colors.white,
+                            size: 28,
+                          ),
+                          onPressed: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -95,50 +111,61 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                               ),
                             );
-                          }
-                        : null,
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(color: Colors.white54, width: 3),
-                    gapPadding: 4,
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(color: Colors.white54, width: 3),
-                    gapPadding: 4,
-                  ),
-                ),
-                cursorColor: Colors.white54,
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: Padding(
-                padding: const EdgeInsets.all(40),
-                child: Container(
-                  height: 350,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(1, 14, 13, 18),
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: Colors.white54),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20, top: 12),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset('assets/camera.png', width: 60,),
-                        Text("Scan", style: TextStyle(color: Colors.white, fontSize: 36, fontWeight: FontWeight.w700))
-                      ],
+                          }),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.white54, width: 1),
+                        gapPadding: 4,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.white54, width: 1),
+                        gapPadding: 4,
+                      ),
                     ),
-                  )
+                    cursorColor: Colors.white54,
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
                 ),
-              ),
-            )
-          ],
+                InkWell(
+                  onTap: getImage,
+                  child: Padding(
+                    padding: const EdgeInsets.all(40),
+                    child: Container(
+                      height: 350,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: Colors.white54),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20, top: 12),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Image.asset(
+                              'assets/camera.png',
+                              width: 60,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 12.0),
+                              child: Text("Scan",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 36,
+                                      fontWeight: FontWeight.w700)),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Spacer(flex: 2),
+              ],
+            ),
+          ),
         ),
       ),
     );
