@@ -118,113 +118,181 @@ class _keywordresultState extends State<keywordresult> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color.fromARGB(1, 14, 13, 18),
-        body: _isloading
-            ? Center(child: CircularProgressIndicator())
-            : Padding(
-                padding: const EdgeInsets.only(left: 0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      flex: 4,
-                      child: InkWell(
-                        onTap: () {},
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 42, top: 20),
-                          child: Text(
-                            widget.keyword != null
-                                ? '${widget.keyword}'
-                                : options[tag],
-                            style: GoogleFonts.ubuntu(
-                              fontSize: 26,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    widget.keywords != null
-                        ? Expanded(
-                            flex: 6,
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 30.0),
-                              child: ChipsChoice<int>.single(
-                                value: tag,
-                                choiceActiveStyle: C2ChoiceStyle(color: Color.fromRGBO(0, 0, 0, 1),borderColor: Colors.greenAccent),
-                                onChanged: (val) => setState(() {
-                                  tag = val;
-                                  callApi(options[tag]);
-                                }),
-                                choiceItems: C2Choice.listFrom<int, String>(
-                                  source: options,
-                                  value: (i, v) => i,
-                                  label: (i, v) => v,
-                                  tooltip: (i, v) => v,
-                                ),
-                                choiceStyle: C2ChoiceStyle(
-                                  color: Color.fromRGBO(0, 0, 0, 0.5),
-                                  borderColor: Colors.greenAccent,
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(20)),
-                                ),
-                                wrapped: true,
-                              ),
-                            ),
-                          )
-                        : Container(),
-                    Expanded(
-                      flex: 2,
-                      child: InkWell(
-                        onTap: () {},
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 42),
-                          child: Text(
-                            'Related Searches',
-                            style: GoogleFonts.ubuntu(
-                              fontSize: 26,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 13,
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: ytResult.length,
-                        itemBuilder: (BuildContext context, int index) =>
-                            listItem(index),
-                      ),
-                    ),
-                    Expanded(flex: 2,
-                      child: InkWell(
-                        onTap: () {},
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 42, top: 12),
-                          child: Text(
-                            'Models',
-                            style: GoogleFonts.ubuntu(
-                              fontSize: 26,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    //Models
-                    Expanded(
-                      flex: 16,
-                      child: EchoARModels(options)
-                    )
-                    // Spacer(flex: 16),
-                  ],
+        body: Stack(
+          children: [
+            Align(
+              alignment: Alignment(0, -0.2),
+              child: Container(
+                height: 450,
+                width: 450,
+                decoration: BoxDecoration(
+                  gradient: RadialGradient(
+                    colors: [
+                      Color.fromRGBO(30, 65, 122, 0.7),
+                      Color.fromRGBO(26, 63, 57, 0)
+                    ],
+                    focalRadius: 1.5,
+                  ),
                 ),
               ),
+            ),
+            Align(
+              alignment: Alignment(0, -0.2),
+              child: Container(
+                height: 450,
+                width: 450,
+                decoration: BoxDecoration(
+                  gradient: RadialGradient(
+                    colors: [
+                      Color.fromRGBO(30, 65, 122, 0.7),
+                      Color.fromRGBO(26, 63, 57, 0)
+                    ],
+                    focalRadius: 1.5,
+                  ),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment(0, -0.2),
+              child: Container(
+                height: 450,
+                width: 450,
+                decoration: BoxDecoration(
+                  gradient: RadialGradient(
+                    colors: [
+                      Color.fromRGBO(30, 65, 122, 0.7),
+                      Color.fromRGBO(26, 63, 57, 0)
+                    ],
+                    focalRadius: 1.5,
+                  ),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment(0, -0.2),
+              child: Container(
+                height: 450,
+                width: 450,
+                decoration: BoxDecoration(
+                  gradient: RadialGradient(
+                    colors: [
+                      Color.fromRGBO(30, 65, 122, 0.7),
+                      Color.fromRGBO(26, 63, 57, 0)
+                    ],
+                    focalRadius: 1.5,
+                  ),
+                ),
+              ),
+            ),
+            _isloading
+                ? Center(child: CircularProgressIndicator())
+                : Padding(
+                    padding: const EdgeInsets.only(left: 0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          flex: 4,
+                          child: InkWell(
+                            onTap: () {},
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 42, top: 20),
+                              child: Text(
+                                widget.keyword != null
+                                    ? '${widget.keyword}'
+                                    : options[tag],
+                                style: GoogleFonts.ubuntu(
+                                  fontSize: 26,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        widget.keywords != null
+                            ? Expanded(
+                                flex: 6,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 30.0),
+                                  child: ChipsChoice<int>.single(
+                                    value: tag,
+                                    choiceActiveStyle: C2ChoiceStyle(
+                                        color: Color.fromRGBO(0, 0, 0, 1),
+                                        borderColor: Colors.greenAccent),
+                                    onChanged: (val) => setState(() {
+                                      tag = val;
+                                      callApi(options[tag]);
+                                    }),
+                                    choiceItems: C2Choice.listFrom<int, String>(
+                                      source: options,
+                                      value: (i, v) => i,
+                                      label: (i, v) => v,
+                                      tooltip: (i, v) => v,
+                                    ),
+                                    choiceStyle: C2ChoiceStyle(
+                                      color: Color.fromRGBO(0, 0, 0, 0.5),
+                                      borderColor: Colors.greenAccent,
+                                      borderRadius: const BorderRadius.all(
+                                          Radius.circular(20)),
+                                    ),
+                                    wrapped: true,
+                                  ),
+                                ),
+                              )
+                            : Container(),
+                        Expanded(
+                          flex: 2,
+                          child: InkWell(
+                            onTap: () {},
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 42),
+                              child: Text(
+                                'Related Searches',
+                                style: GoogleFonts.ubuntu(
+                                  fontSize: 26,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          flex: 13,
+                          child: ListView.builder(
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            itemCount: ytResult.length,
+                            itemBuilder: (BuildContext context, int index) =>
+                                listItem(index),
+                          ),
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: InkWell(
+                            onTap: () {},
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 42, top: 12),
+                              child: Text(
+                                'Models',
+                                style: GoogleFonts.ubuntu(
+                                  fontSize: 26,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        //Models
+                        Expanded(flex: 16, child: EchoARModels(options))
+                        // Spacer(flex: 16),
+                      ],
+                    ),
+                  ),
+          ],
+        ),
       ),
     );
   }
@@ -265,6 +333,7 @@ class _keywordresultState extends State<keywordresult> {
       ),
     );
   }
+
   Widget EchoARModels(List<String> k) {
     return isLoading
         ? Center(child: CircularProgressIndicator())
@@ -390,7 +459,9 @@ class _keywordresultState extends State<keywordresult> {
                                   children: [
                                     Row(
                                       children: [
-                                        SizedBox(width: 6,),
+                                        SizedBox(
+                                          width: 6,
+                                        ),
                                         Object3D(
                                           size: const Size(100.0, 100.0),
                                           path: _modelHologramPath4,
@@ -417,6 +488,3 @@ class _keywordresultState extends State<keywordresult> {
           );
   }
 }
-
-
-

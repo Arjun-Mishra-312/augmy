@@ -6,6 +6,7 @@ import 'homescreen.dart';
 
 Future<void> main() async {
   await DotEnv.load(fileName: '.env');
+  Paint.enableDithering = true;
   runApp(MyApp());
 }
 
