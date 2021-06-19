@@ -10,7 +10,7 @@ The UI was designed using Figma.
 ## Challenges we ran into
 * Implementation of text recognition using Google ML Kit.
 * Working with APIs
-* Implementation of Frosted Glass and Radial Blur to improve the UI/UX of the app.
+* Implementation of Glassmorphism and Radial Blur to improve the UI/UX of the app.
 
 ## What's next for AugMy
 * Using machine learning, we aim to form questions regarding the selected keywords.
